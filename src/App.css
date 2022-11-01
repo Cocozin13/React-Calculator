@@ -1,38 +1,82 @@
-.App {
-  text-align: center;
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+#App
+{
   display: flex;
-  flex-direction: column;
-  align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
 }
 
-.App-link {
-  color: #61dafb;
+#calculator 
+{
+  margin-top: 100px;
+  height: 450px;
+  background-color:  steelblue;
+  display: grid;
+  grid-template-columns: 70px 70px 70px 70px;
+  grid-gap: 5px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+#calculator > * {
+  border: 3px solid black;
+  padding: 10px;
+}
+
+.row
+{
+  grid-column: 1 / -1;
+}
+
+#clear
+{
+  grid-column-start: 1;
+  grid-column-end: 3;
+}
+
+#zero
+{
+  grid-row-start: 6;
+  grid-column-start: 1;
+  grid-column-end: 3;
+}
+
+#equals
+{
+  grid-row-start: 7;
+  grid-row-end: 5;
+  grid-column-end: 5;
+}
+
+#decimal
+{
+  grid-row-start: 6;
+}
+
+button {
+  cursor: pointer;
+  border-radius: 10px;
+  box-shadow: 1px 2px blue;
+}
+
+button:hover {
+  background-color: #acc;
+}
+
+#clear {
+  background-color: red;
+}
+
+#equals {
+  background-color: blueviolet;
 }
