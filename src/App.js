@@ -8,7 +8,8 @@ export default class App extends Component {
       currentValue: null,
       display: '0',
       operandPending: false,
-      operator: null
+      operator: null,
+      history: ''
 
     };
   }
@@ -19,12 +20,14 @@ export default class App extends Component {
     {
       this.setState({
         display: String(num),
-        operandPending: false
+        operandPending: false,
+        history: this.state.history + num
       });
     }else 
     {
       this.setState({
-        display: this.state.display === '0' ? String(num) : this.state.display + num
+        display: this.state.display === '0' ? String(num) : this.state.display + num,
+        history: this.state.history + num
       })
     }
   }
@@ -57,13 +60,14 @@ export default class App extends Component {
 
       this.setState({
         currentValue: result,
-        display: String(result)
+        display: String(result),
+        history: result
       });
     }
 
     this.setState({
       operandPending: true,
-      operator: nextOperator
+      operator: nextOperator,
     })
   }
 
@@ -80,7 +84,8 @@ export default class App extends Component {
     {
       this.setState({
         display: this.state.display + '.',
-        operandPending: false
+        operandPending: false,
+        history: this.state.history + (this.state.history == "" ? "0." : ".")
       });
     }
   }
@@ -91,7 +96,8 @@ export default class App extends Component {
       currentValue: null,
       display: '0',
       operandPending: false,
-      operator: null
+      operator: null,
+      history: ''
     });
   }
 
@@ -100,26 +106,26 @@ export default class App extends Component {
       <div className="App" id="App">
         <div id="calculator">
           <div className="row" id="display">
-            <h3 id="pastNums">{}</h3>
+            <h3 id="pastNums">{(this.state.history)}</h3>
             <h2 id="recentNum">{parseFloat(this.state.display).toLocaleString()}</h2>
           </div>
-          <button id="clear" onClick={() => this.displayDelete()}>AC</button>
-          <button className="ops" id="multiply" onClick={() => this.displayOperator('*')}>X</button>
-          <button className="ops" id="divide" onClick={() => this.displayOperator('/')}>/</button>
-          <button className="nums" id="seven"onClick={() => this.displayNum(7)}>7</button>
-          <button className="nums" id="eight"onClick={() => this.displayNum(8)}>8</button>
-          <button className="nums" id="nine"onClick={() => this.displayNum(9)}>9</button>
-          <button className="ops" id="subtract" onClick={() => this.displayOperator('-')}>-</button>
-          <button className="nums" id="four"onClick={() => this.displayNum(4)}>4</button>
-          <button className="nums" id="five"onClick={() => this.displayNum(5)}>5</button>
-          <button className="nums" id="six"onClick={() => this.displayNum(6)}>6</button>
-          <button className="nums" id="zero"onClick={() => this.displayNum(0)}>0</button>
-          <button className="ops" id="add" onClick={() => this.displayOperator('+')}>+</button>
-          <button className="nums" id="one" onClick={() => this.displayNum(1)}>1</button>
-          <button className="nums" id="two" onClick={() => this.displayNum(2)}>2</button>
-          <button className="nums" id="three" onClick={() => this.displayNum(3)}>3</button>
-          <button id="equals" onClick={() => this.displayOperator('=')}>=</button>
-          <button id="decimal" onClick={() => this.displayDecimal()}>.</button>
+          <button id="clear" onClick={() => this.displayDelete()}><b>AC</b></button>
+          <button className="ops" id="multiply" onClick={() => this.displayOperator('*')}><b>X</b></button>
+          <button className="ops" id="divide" onClick={() => this.displayOperator('/')}><b>/</b></button>
+          <button className="nums" id="seven"onClick={() => this.displayNum(7)}><b>7</b></button>
+          <button className="nums" id="eight"onClick={() => this.displayNum(8)}><b>8</b></button>
+          <button className="nums" id="nine"onClick={() => this.displayNum(9)}><b>9</b></button>
+          <button className="ops" id="subtract" onClick={() => this.displayOperator('-')}><b>-</b></button>
+          <button className="nums" id="four"onClick={() => this.displayNum(4)}><b>4</b></button>
+          <button className="nums" id="five"onClick={() => this.displayNum(5)}><b>5</b></button>
+          <button className="nums" id="six"onClick={() => this.displayNum(6)}><b>6</b></button>
+          <button className="nums" id="zero"onClick={() => this.displayNum(0)}><b>0</b></button>
+          <button className="ops" id="add" onClick={() => this.displayOperator('+')}><b>+</b></button>
+          <button className="nums" id="one" onClick={() => this.displayNum(1)}><b>1</b></button>
+          <button className="nums" id="two" onClick={() => this.displayNum(2)}><b>2</b></button>
+          <button className="nums" id="three" onClick={() => this.displayNum(3)}><b>3</b></button>
+          <button id="equals" onClick={() => this.displayOperator('=')}><b>=</b></button>
+          <button id="decimal" onClick={() => this.displayDecimal()}><b>.</b></button>
         </div>
         
       </div>
