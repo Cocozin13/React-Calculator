@@ -106,8 +106,8 @@ export default class App extends Component {
       <div className="App" id="App">
         <div id="calculator">
           <div className="row" id="display">
-            <h3 id="pastNums">{(this.state.history)}</h3>
-            <h2 id="recentNum">{parseFloat(this.state.display).toLocaleString()}</h2>
+            <h3 id="pastNums" className="disNums">{(this.state.history)}</h3>
+            <h2 id="recentNum" className="disNums">{parseFloat(this.state.display).toLocaleString()}</h2>
           </div>
           <button id="clear" onClick={() => this.displayDelete()}><b>AC</b></button>
           <button className="ops" id="multiply" onClick={() => this.displayOperator('*')}><b>X</b></button>
@@ -127,7 +127,6 @@ export default class App extends Component {
           <button id="equals" onClick={() => this.displayOperator('=')}><b>=</b></button>
           <button id="decimal" onClick={() => this.displayDecimal()}><b>.</b></button>
         </div>
-        
       </div>
     );
   }
