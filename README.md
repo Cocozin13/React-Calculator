@@ -4,6 +4,6 @@
 
 ## Simple Calculator made using React.js
 
-## How to use this app ?
+# How to use this app ?
 
-## Just run `npm start` and enjoy :)
+### Just run `npm start` and enjoy :)
